@@ -1,0 +1,19 @@
+{
+  "name": "shopiz",
+  "version": "1.0.0",
+  "description": "E commerce platform using Node JS ,React Js, Express JS, Mongo DB and Redux",
+  "main": "backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhil-cod/Shopiz.git"
+  },
+  "author": "Nikhil Chakole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhil-cod/Shopiz/issues"
+  },
+  "homepage": "https://github.com/nikhil-cod/Shopiz#readme"
+}
