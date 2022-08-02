@@ -16,7 +16,7 @@ dotenv.config({ path: "backend/config/config.env" });
 
 //Calling database function
 connectDatabase();
-const server = app.listen(process.env.PORT);
+const server = app.listen(5000);
 
 
 //Unhandled Promice Rejection

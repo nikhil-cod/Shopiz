@@ -17,10 +17,10 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 //Gell All Product
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
 
-    const productCount = await Product.countDocuments() 
+    const productCount = await Product.countDocuments()
 
     const apiFeature = new ApiFeatures(Product.find(), req.query).search().filter().pagination(5); // 5=> 5 result per page
-    
+
     const productsList = await apiFeature.query;
     res.status(200).json({
         success: true,
@@ -30,7 +30,7 @@ exports.getAllProducts = catchAsyncErrors(async (req, res) => {
 
 //Update Product - Admin
 
-exports.updateProduct =catchAsyncErrors( async (req, res, next) => {
+exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     let product = await Product.findById(req.params.id);
     if (!product) {
         return res.status(500).json({
@@ -63,7 +63,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 //Get Product Details - Admin
-exports.getProductDetails =catchAsyncErrors( async (req, res, next) => {
+exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
     let product = await Product.findById(req.params.id);
     if (!product) {
         return next(new ErrorHandler("Product Not Found", 404));

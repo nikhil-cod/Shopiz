@@ -46,18 +46,20 @@ const userSchema = new mongoose.Schema({
   resetPasswordExpire: Date,
 });
 
-userSchema.pre("save", async function (next) { //For Encrypting the password before saving it
-  if (!this.isModified("password")) {
-    next();
+userSchema.pre("save", async function (next) { //For Encrypting the password before saving it (pre means do it before "save"ing it)
+
+  if (!this.isModified("password")) {   // This is the condition for when user is updating any details other than password i.e when it will update
+    next();                            // the previous information, so password will be same so no encryption again
   }
+
   this.password = await bcrypt.hash(this.password, 10); //For Encrypting the password before saving it
   //Here 10 represents the strength of password
 });
 
 // JWT TOKEN for storing in cookies
 userSchema.methods.getJWTToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRE,
+  return jwt.sign({ id: this._id },  "SLDKFNLSJHGOIJSOLFNLSJHFOLSHJEFLASFJKJ", { //that is secret key
+    expiresIn: "5d",// token will expire in 5 days
   });
 };
 

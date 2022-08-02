@@ -1,4 +1,4 @@
-const ErrorHandler = require('../utils/errorhandler');
+const ErrorHander = require('../utils/errorhandler');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const User = require('../models/userModel');
 
@@ -17,12 +17,12 @@ exports.registerUser = catchAsyncErrors( async( req, res, next) =>{
         }
     });
 
-    const token = user.getJWTToken();
+     const token = user.getJWTToken();
 
     res.status(201).json({
         success:true,
         user,
-        token
+         token
     });
  });
 
