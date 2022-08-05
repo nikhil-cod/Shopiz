@@ -5,9 +5,9 @@ const cookieParser = require("cookie-parser");
 
 const errorMiddleWare = require('./middleware/error');
 
+app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-app.use(express.json());
 //Route Imports
 const productRoute = require("./routes/productRoute");
 const userRoute = require("./routes/userRoute");
